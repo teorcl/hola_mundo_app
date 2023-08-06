@@ -25,7 +25,10 @@ class _CounterScreenState extends State<CounterScreen> {
               style:
                   const TextStyle(fontSize: 160, fontWeight: FontWeight.w100),
             ),
-            validateClicks(clickCounter),
+            Text(
+              validateClicks(clickCounter),
+              style: const TextStyle(fontSize: 40, fontWeight: FontWeight.w100),
+            ),
           ],
         ),
       ),
@@ -39,13 +42,8 @@ class _CounterScreenState extends State<CounterScreen> {
     );
   }
 
-  Widget validateClicks(int click) {
-    String clikOClicks = clickCounter >= 9 ? 'Clicks' : 'Click';
-    return Text(
-      clikOClicks,
-      style: const TextStyle(
-        fontSize: 25,
-      ),
-    );
+  String validateClicks(int click) {
+    String clikOClicks = clickCounter == 0 || clickCounter > 9 ? 'Clicks' : 'Click';
+    return clikOClicks;
   }
 }
